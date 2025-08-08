@@ -72,14 +72,14 @@ const cartasVolteadas = (): Juego[] => {
             agregarResultado({ id: totalJuego + 1, resultado: 'Ha ganado', fecha: new Date().toLocaleString() });
           }
         } else {
-          setMessage('No son iguales. Fin del juego.');
-          addGameResult({ id: totalGames + 1, result: 'Perdió', date: new Date().toLocaleString() });
-          setTimeout(() => setGameStarted(false), 1000);
+          setAlerta('No son iguales. Fin del juego.');
+          agregarResultado({ id: totalJuego + 1, resultado: 'Ha perdido', fecha: new Date().toLocaleString() });
+          setTimeout(() => setJuegoComenzado(false), 1000);
         }
       }, 1000);
       return () => clearTimeout(timeout);
     }
-  }, [firstCard, secondCard]);
+  }, [primerCarta, segundaCarta]);
 }
-}
+
 
